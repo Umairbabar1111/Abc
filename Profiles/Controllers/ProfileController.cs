@@ -18,7 +18,6 @@ namespace Profiles.Controllers
         private ProfilesContext mydb = null;
         private IHostingEnvironment _env = null;
 
-        public string Gmail { get; private set; }
 
         public ProfileController(ProfilesContext abc, IHostingEnvironment xyz)
         {
@@ -79,20 +78,14 @@ namespace Profiles.Controllers
         [HttpPost]
         public IActionResult EditStudents(Student S)
         {
-
             mydb.Student.Update(S);
             mydb.SaveChanges();
             return RedirectToAction("AllStudents");
-
         }
-
         public IActionResult DetailsStudents(int Id)
         {
             Student S = mydb.Student.Where(a => a.Id == Id).SingleOrDefault<Student>();
-
-
             return View(S);
-
         }
         [HttpGet]
         public IActionResult DeleteStudents(int Id)
@@ -104,77 +97,48 @@ namespace Profiles.Controllers
         [HttpPost]
         public IActionResult DeleteStudents(Student S)
         {
-
             mydb.Student.Remove(S);
             mydb.SaveChanges();
             return RedirectToAction("AllStudents");
-
         }
-
-
-
         public IActionResult AllStudents()
-
         {
             IList<Student> S = new List<Student>();
             S = mydb.Student.ToList<Student>();
             return View(S);
-
         }
-
-
-
-
         [HttpGet]
-
-
-
         public IActionResult AllTeachers()
         {
             IList<Teacher> abc = mydb.Teacher.ToList<Teacher>();
             return View(abc);
-
         }
-
-
-
         [HttpPost]
-
         public IActionResult AllTeachers(string SearchByName, string SearchByEmail)
 
         {
            IList<Teacher> o = mydb.Teacher.Where(a => a.Name.Contains(SearchByName)||a.Email.Contains(SearchByEmail)).ToList<Teacher>();
-
             return View(o);
-        }
-
-
-
+        } 
         [HttpGet]
         public IActionResult Teacher()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Teacher(Teacher T,IFormFile img)
+        public IActionResult Teacher(Teacher T,IFormFile Image)
         {
-    
-            
             bool abc = mydb.Teacher.Where(a => a.Email == T.Email).Any();
             if (abc)
             {
                 ViewBag.Message = "Teacher with same Email already exist.";
                 return View();
             }
-
             string path = _env.WebRootPath +"/images/";
-         
-
-            string FileExt = Path.GetExtension(img.FileName);
-
+            string FileExt = Path.GetExtension(Image.FileName);
             string Name = DateTime.Now.ToString("yymmddhhmmss") + FileExt;
             FileStream fs = new FileStream(path + Name, FileMode.Create);
-            img.CopyTo(fs);
+            Image.CopyTo(fs);
             fs.Close();
             T.Image = "/images/" + Name + FileExt;
 
@@ -188,8 +152,6 @@ namespace Profiles.Controllers
                 msg.Body = "You Have Successfully Registered";
                 SmtpClient sc = new SmtpClient();
                 sc.Credentials = new System.Net.NetworkCredential("umairbabar1996@gmail.com", "88669966@@");
-
-
                 sc.Host = "smtp.gmail.com";
                 sc.Port = 587;
                 sc.EnableSsl = true;
@@ -241,6 +203,16 @@ namespace Profiles.Controllers
         public IActionResult Profile()
         {
 
+            return RedirectToAction("Umair");
+        }
+        public IActionResult Umair()
+        {
+            return View();
+
+        }
+
+        public IActionResult Download(string path)
+        {
             return View();
         }
     }

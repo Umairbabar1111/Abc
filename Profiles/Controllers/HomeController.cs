@@ -14,6 +14,8 @@ namespace Profiles.Controllers
         {
             return View();
         }
+      
+
         public IActionResult Umair()
         { return View(); }
         public IActionResult About()

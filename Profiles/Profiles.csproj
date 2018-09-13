@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <None Include="Views\Home\Thrme.cshtml" />
-    <None Include="Views\Home\Umair.cshtml" />
+    <None Include="Views\Profile\Umair.cshtml" />
     <None Include="wwwroot\assets\img\preloaders\preloader-black.svg" />
     <None Include="wwwroot\assets\include\svg\svg-bg1.svg" />
     <None Include="wwwroot\assets\include\svg\svg-bg2-j.svg" />
