@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Profiles</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="shortcut icon" href="../../favicon.ico">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway%3A400%2C500%2C800">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat%3A400%2C700">
+        <link rel="stylesheet" href="../../assets/vendor/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="../../assets/vendor/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="../../assets/vendor/icon-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../assets/vendor/icon-etlinefont/style.css">
+        <link rel="stylesheet" href="../../assets/vendor/icon-hs/style.css">
+        <link rel="stylesheet" href="../../assets/vendor/icon-line-pro/style.css">
+        <link rel="stylesheet" href="../../assets/vendor/animate.css">
+        <link rel="stylesheet" href="../../assets/vendor/slick-carousel/slick/slick.css">
+        <link rel="stylesheet" href="../../assets/vendor/hs-megamenu/src/hs.megamenu.css">
+        <link rel="stylesheet" href="../../assets/vendor/hamburgers/hamburgers.min.css">
+        <link rel="stylesheet" href="../../assets/vendor/master-slider/source/assets/css/masterslider.main.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+    </environment>
+</head>
+<body>
+    <nav id="nb" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Profiles</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                </ul>
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </nav>
+
+    <partial name="_CookieConsentPartial" />
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2018 - Profiles</p>
+        </footer>
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="../../assets/vendor/jquery/jquery.min.js"></script>
+        <script src="../../assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+        <script src="../../assets/vendor/popper.min.js"></script>
+        <script src="../../assets/vendor/bootstrap/bootstrap.min.js"></script>
+
+        <script src="../../assets/vendor/masonry/dist/masonry.pkgd.min.js"></script>
+        <script src="../../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+        <script src="../../assets/vendor/slick-carousel/slick/slick.js"></script>
+        <script src="../../assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+        <script src="../../assets/js/hs.core.js"></script>
+        <script src="../../assets/js/components/hs.header.js"></script>
+        <script src="../../assets/js/helpers/hs.hamburgers.js"></script>
+        <script src="../../assets/js/components/hs.scroll-nav.js"></script>
+        <script src="../../assets/js/components/hs.carousel.js"></script>
+
+        <script src="../../assets/vendor/master-slider/source/assets/js/masterslider.min.js"></script>
+
+        <script src="../../assets/js/custom.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+
+
+
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

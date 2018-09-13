@@ -1,0 +1,128 @@
+﻿    @model IEnumerable<Profiles.Models.Teacher>
+
+@{
+    ViewData["Title"] = "AllTeachers";
+}
+
+<h2>AllTeachers</h2>
+
+<h1> Total Teacher = @Model.Count()</h1>
+
+<div>
+    <a asp-action="Teacher" class="btn btn-warning btn-block left"> Add New Teacher</a>
+</div><br><br><br>
+
+
+<div>
+
+    <a asp-action="EditTeacher" class="btn btn-success btn-warning">Edit Teacher</a>
+</div>
+
+
+<form method="post">
+
+    <div>
+        <input type="text" id="SearchByName" name="SearchByName" placeholder="Search By Name" />
+
+    </div>
+    <div>
+    <input type="submit" value="Search" />
+
+    </div>
+    </form>
+<form method="post">
+    <div>
+
+        <input type="text" id="SearchByEmail" name="SearchByEmail" placeholder="Search By Email">
+    </div>
+    <div>
+
+        <input type="submit" value="Search" />
+    </div>
+</form>
+
+
+
+
+<table class="table" id="mytable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Faculty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConfirmPassword)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Faculty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConfirmPassword)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditTeacher", new { Id = item.Id }) |
+                    @Html.ActionLink("Details", "DetailsTeacher", new { Id = item.Id }) |
+                    @Html.ActionLink("Delete", "DeleteTeacher", new { Id = item.Id })
+
+
+
+                </td>
+            </tr>
+            
+        }
+
+
+
+
+<a asp-action="DetailsTeacher"  class="btn btn-success btn-lg"><span class="glyphicon glyphicon-ok"></span> Detail</a>
+    </tbody>
+</table>
+
+
+@section Scripts{ 
+<script>
+
+
+    $(document).ready(function () {
+        $('#mytable').DataTable();
+        $('#nb').draggable();
+        $('#DOB').datepicker();
+    });
+</script>}
